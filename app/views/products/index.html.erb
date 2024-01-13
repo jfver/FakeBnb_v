@@ -1,0 +1,21 @@
+<div class="container">
+
+  <div class="row">
+  <% @products.each do |product| %>
+  <div class="col-4">
+    <div class="card-trip">
+        <%= image_tag(product.image_link, alt: product.title) %>
+      <div class="card-trip-infos">
+        <div>
+          <h2><%= product.title %></h2>
+          <p><%= product.description %></p>
+        </div>
+        <h2 class="card-trip-pricing pt-2"><%= product.price %>$ per day</h2>
+        <%= image_tag User.find(product.user_id).photo, class: "card-trip-user avatar-bordered" %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+</div>
+
