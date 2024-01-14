@@ -13,7 +13,7 @@ Booking.destroy_all
 Product.destroy_all
 User.destroy_all
 puts "generating User"
-User.create(username: "jf_vt", email: "jfvernet@icloud.com", password: "azerty", photo: "Zelda.jpg")
+User.create(username: "jf_vt", email: "jfvernet@icloud.com", password: "azerty", photo: "Zelda.jpg", description:  "I am a central character in The Legend Of Zelda series. I am a member of the royal family of Hyrule. I found myself in the past, 10.000 years before the calamity, by touching the secret stone of Rauru.")
 User.create(username: "supertoto", email: "toto@gmail.com", password: "azerty")
 
 5.times do

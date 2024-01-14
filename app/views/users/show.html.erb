@@ -1,0 +1,52 @@
+<div class="container d-flex">
+  <div class="col-6 mx-auto mt-3 text-center">
+    <% if @user.photo? %>
+      <%= image_tag @user.photo, alt: "User Photo", class: "avatar-large-profil" %>
+    <% end %>
+    <h2 class="colored-border-bottom pt-3 pb-4 thin"><%= @user.username %></h2>
+    <% if @user.description? %>
+      <h5 class="x-thin"><%= @user.description %></h5>
+    <% end %>
+  </div>
+<div class="container ms-2 mt-3 resa-user">
+    <div class="text-center">
+        <h3>Reservations</h3>
+    </div>
+    <div class="row">
+        <% @bookings.each do |booking| %>
+            <div class="col-6">
+                <div class="card-trip">
+                    <%= image_tag booking.product.image_link, alt: "Product Photo" %>
+                    <div class="card-trip-infos">
+                        <div class="col-8">
+                            <h5 class="font-size-medium"><%= booking.product.title %></h5>
+                            <p><%= booking.start_date %> - <%= booking.end_date %></p>
+                        </div>
+                        <h2 class="card-trip-pricing pt-2 text-center"><%= booking.product.price %>$ per day</h2>
+                        <%= image_tag User.find(booking.product.user_id).photo, class: "card-trip-user avatar-bordered" %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+  <!---<div class="row">
+    <div class="container">
+    <% @bookings.each do |booking| %>
+      <div class="col-6">
+          <div class="card-trip">
+            <%= image_tag(booking.product.image_link, alt: booking.product.title) %>
+            <div class="card-trip-infos">
+              <div>
+                <h2><%= booking.product.title %></h2>
+                <p><%= booking.product.description %></p>
+              </div>
+              <h2 class="card-trip-pricing pt-2"><%= booking.product.price %>$ per day</h2>
+              <%= image_tag User.find(booking.product.user_id).photo, class: "card-trip-user avatar-bordered" %>
+            </div>
+          </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
